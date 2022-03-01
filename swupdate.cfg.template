@@ -1,0 +1,26 @@
+globals:
+{
+        verbose = true;
+        loglevel = 6;
+        syslog = true;
+}
+
+gservice =
+{
+        url = "$BASE_URL/api/v0/swupdate/update";
+        logurl = "$BASE_URL/api/v0/swupdate/logs?mpk=$PROJECT_KEY&id=$DEVICE_SERIAL&v=$SOFTWARE_VERSION&st=$SOFTWARE_TYPE&hw=$HARDWARE_VERSION";
+        logevent: (
+                {event = "check"; format="#1,date,st,v"},
+                {event = "started"; format="#2,date,st,v"},
+                {event = "success"; format="#3,date,st,v"},
+                {event = "fail"; format="#4,date,st,v"}
+        );
+}
+
+identify : (
+        { name = "mpk"; value = "$PROJECT_KEY" },
+        { name = "id"; value = "$DEVICE_SERIAL" },
+        { name = "v"; value = "$SOFTWARE_VERSION" },
+        { name = "st"; value = "$SOFTWARE_TYPE" },
+        { name = "hw"; value = "$HARDWARE_VERSION" }
+);
