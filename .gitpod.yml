@@ -4,4 +4,4 @@ tasks:
       sudo apt-get install -y libconfig-dev libjson-c-dev &&
       ./build.sh &&
       ./generate_config.sh
-    command: echo 'call ./run.sh'
+    command: ./run.sh
