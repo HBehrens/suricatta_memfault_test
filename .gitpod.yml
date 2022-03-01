@@ -1,7 +1,8 @@
-# List the start up tasks. Learn more https://www.gitpod.io/docs/config-start-tasks/
+image:
+  file: .gitpod.Dockerfile
+
 tasks:
   - init: >
-      sudo apt-get install -y libconfig-dev libjson-c-dev &&
       ./build.sh &&
       ./generate_config.sh
     command: ./run.sh
